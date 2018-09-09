@@ -7,8 +7,8 @@ bot = telebot.TeleBot(token)
 @bot.message_handler(commands=["start"])
 def handle_start(message):
 		name = "Программист"
-    object = Response(name)
+		object = Response(name)
     res = object.get_dict()
-		bot.send_message(message.chat.id, "Первое объявление: " + "Название: " + res[0]["title"] + '\n' + 'Описание: ' + res[0]["req"] + 
+		bot.send_message(message.chat.id, "Первое объявление: " + "\n" + "Название: " + res[0]["title"] + '\n' + 'Описание: ' + res[0]["req"] + 
     	"\n" + "Цена: " + str(res[0]["price"]) + "\n" + "Категория: " + str(res[0]["category"]) + 
     	"\n" + "Кол-во заявок на выполнение: " + res[0]["rates_num"])
