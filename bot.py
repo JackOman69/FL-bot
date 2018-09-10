@@ -4,11 +4,14 @@ from freelance_response import Response
 
 bot = telebot.TeleBot(token)
 
+name = "Программист"
+object = Response(name)
+res = object.get_dict()
+
 @bot.message_handler(commands=["start"])
 def handle_start(message):
-		name = "Программист"
-		object = Response(name)
-		res = object.get_dict()
+		global name
+		global res
 		bot.send_message(message.chat.id, "Первое объявление: " +
 			"\n" + "Название: " + res[0]["title"] + '\n' + "Описание: " + res[0]["req"] +
     	"\n" + "Цена: " + str(res[0]["price"]) + "\n" + "Категория: " + str(res[0]["category"]) +
